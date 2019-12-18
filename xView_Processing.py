@@ -43,6 +43,7 @@ for image in images[:1]:
         else:
             im.save(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
+            c_cls[j] = [labels_one_sixty[m] for m in c_cls[j]]
             new_cls_box = np.c_[ c_cls[j], c_box[j]]
             new_cls_box = np.matrix(new_cls_box)
             print(c_cls[j])
