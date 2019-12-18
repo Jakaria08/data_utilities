@@ -25,6 +25,6 @@ for image in images[:2]:
     c_img, c_box, c_cls = wv.chip_image(img=img, coords=coords_chip[i], classes=classes_chip[i],
                             shape=(256,256))
 
-    for i in range(c_img.shape[0]):
-        print(c_box[i])
+    for j in range(c_img.shape[0]):
+        print(c_box[j])
     i = i + 1
