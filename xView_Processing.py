@@ -17,8 +17,13 @@ coords_chip = []
 classes_chip = []
 i = 0
 for image in images[:6]:
-    #img = wv.get_image(image)
+    img = wv.get_image(image)
     coords_chip.append(coords[chips==os.path.basename(image)])
     classes_chip.append(classes[chips==os.path.basename(image)])
+
+    c_img, c_box, c_cls = wv.chip_image(img=img, coords=coords_chip[i], classes=classes_chip[i],
+                            shape=(256,256))
+    print("Num of Chips: %d" % c_img.shape[0])
+
     print([labels[i] for i in np.unique(classes_chip[i])])
     i = i + 1
