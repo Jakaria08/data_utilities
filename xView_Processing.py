@@ -6,7 +6,7 @@ import glob
 import os
 
 images = list(sorted(glob.glob("/home/jakaria/Super_Resolution/Datasets/xView/train_images/"+"*.tif")))
-
+print(images)
 labels = {}
 with open('xview_class_labels.txt') as f:
     for row in csv.reader(f):
