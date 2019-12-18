@@ -22,7 +22,7 @@ coords_chip = []
 classes_chip = []
 i = 0
 
-for image in images[:1]:
+for image in images[:200]:
     img = wv.get_image(image)
     coords_chip.append(coords[chips==os.path.basename(image)])
     classes_chip.append(classes[chips==os.path.basename(image)])
@@ -37,7 +37,6 @@ for image in images[:1]:
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
             new_cls_box = np.c_[ c_cls[j], c_box[j]]
             new_cls_box = np.matrix(new_cls_box)
-            print(c_cls[j])
             np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/empty_chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box, fmt='%i')
         else:
@@ -46,8 +45,8 @@ for image in images[:1]:
             c_cls[j] = [labels_one_sixty[m] for m in c_cls[j]]
             new_cls_box = np.c_[ c_cls[j], c_box[j]]
             new_cls_box = np.matrix(new_cls_box)
-            print(c_cls[j])
             np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box, fmt='%i')
 
     i = i + 1
+    print(i)
