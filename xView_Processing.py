@@ -13,9 +13,12 @@ with open('xview_class_labels.txt') as f:
         labels[int(row[0].split(":")[0])] = row[0].split(":")[1]
 
 coords, chips, classes = wv.get_labels('../xView_train.geojson')
-
+coords_chip = {}
+classes_chip = {}
+i = 0
 for image in images[:6]:
     #img = wv.get_image(image)
-    coords = coords[chips==os.path.basename(image)]
-    classes = classes[chips==os.path.basename(image)]
-    print([labels[i] for i in np.unique(classes)])
+    coords_chip.append(coords[chips==os.path.basename(image)])
+    classes_chip.append(classes[chips==os.path.basename(image)])
+    print([labels[i] for i in np.unique(classes_chip[i])])
+    i = i + 1
