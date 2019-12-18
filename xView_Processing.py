@@ -9,9 +9,12 @@ from PIL import Image
 images = list(sorted(glob.glob("/home/jakaria/Super_Resolution/Datasets/xView/train_images/"+"*.tif")))
 
 labels = {}
+k = 1
 with open('xview_class_labels.txt') as f:
     for row in csv.reader(f):
         labels[int(row[0].split(":")[0])] = row[0].split(":")[1]
+        labels_one_sixty[int(row[0].split(":")[0])] = k
+        k = k + 1
 
 coords, chips, classes = wv.get_labels('../xView_train.geojson')
 coords_chip = []
@@ -39,9 +42,9 @@ for image in images[:1]:
         else:
             im.save(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
-            new_cls_box = np.c_[ c_cls[j], c_box[j]]
+            new_cls_box = np.c_[ labels_one_sixty[c_cls[j]], c_box[j]]
             new_cls_box = np.matrix(new_cls_box)
-            #print(new_cls_box)
+            print(c_cls[j])
             np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box, fmt='%i')
 
