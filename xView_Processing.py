@@ -32,18 +32,20 @@ for image in images[:1]:
 
     for j in range(c_img.shape[0]):
         im = Image.fromarray(c_img[j])
-        if np.asscalar(np.squeeze(c_cls[j])) == 0:
+        if c_cls[j][0] == 0:
             im.save(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/empty_chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
             new_cls_box = np.c_[ c_cls[j], c_box[j]]
             new_cls_box = np.matrix(new_cls_box)
+            print(c_cls[j])
             np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/empty_chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box, fmt='%i')
         else:
             im.save(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
-            new_cls_box = np.c_[ labels_one_sixty[np.asscalar(np.squeeze(c_cls[j]))], c_box[j]]
+            new_cls_box = np.c_[ labels_one_sixty[(c_cls[j][0]], c_box[j]]
             new_cls_box = np.matrix(new_cls_box)
+            print(c_cls[j])
             np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                     os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box, fmt='%i')
 
