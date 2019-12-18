@@ -9,6 +9,7 @@ from PIL import Image
 images = list(sorted(glob.glob("/home/jakaria/Super_Resolution/Datasets/xView/train_images/"+"*.tif")))
 
 labels = {}
+labels_one_sixty = {}
 k = 1
 with open('xview_class_labels.txt') as f:
     for row in csv.reader(f):
