@@ -17,7 +17,7 @@ coords_chip = []
 classes_chip = []
 i = 0
 
-for image in images[:2]:
+for image in images[:1]:
     img = wv.get_image(image)
     coords_chip.append(coords[chips==os.path.basename(image)])
     classes_chip.append(classes[chips==os.path.basename(image)])
