@@ -16,10 +16,10 @@ with open('xview_class_labels.txt') as f:
         labels[int(row[0].split(":")[0])] = row[0].split(":")[1]
         labels_one_sixty[int(row[0].split(":")[0])] = k
         k = k + 1
+
     labels_one_sixty[75] = k
     labels_one_sixty[82] = k + 1
-    print(k)
-    
+
 coords, chips, classes = wv.get_labels('../xView_train.geojson')
 coords_chip = []
 classes_chip = []
