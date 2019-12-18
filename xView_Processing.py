@@ -29,10 +29,10 @@ for image in images[:1]:
     for j in range(c_img.shape[0]):
         im = Image.fromarray(c_img[j])
         im.save(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
-                                os.path.splitext(os.path.basename(image))[0]+str(j)+".png"))
+                                os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
         new_cls_box = np.c_[ c_cls[j], c_box[j]]
         new_cls_box = np.matrix(new_cls_box.astype(int))
         np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
-                                os.path.splitext(os.path.basename(image))[0]+str(j)+".txt"), new_cls_box)
+                                os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box)
 
     i = i + 1
