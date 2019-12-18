@@ -31,7 +31,7 @@ for image in images[:1]:
         im.save(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                 os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".png"))
         new_cls_box = np.c_[ c_cls[j], c_box[j]]
-        new_cls_box = np.squeeze(new_cls_box.astype(int))
+        new_cls_box = np.matrix(new_cls_box, dtype=int)
         print(new_cls_box)
         np.savetxt(os.path.join("/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/",
                                 os.path.splitext(os.path.basename(image))[0]+"_"+str(j)+".txt"), new_cls_box)
