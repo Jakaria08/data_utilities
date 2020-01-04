@@ -7,11 +7,11 @@ root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
 annotation = list(sorted(glob.glob(root+"*.txt")))
 
 print(len(annotation))
+labels = list()
 for i in range(len(annotation)):
     annotation_path = os.path.join(root, annotation[i])
-    if(i%1000):
+    if i%1000 == 0:
         print(i)
-    labels = list()
     with open(annotation_path) as f:
         for line in f:
             values = (line.split())
