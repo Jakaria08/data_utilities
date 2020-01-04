@@ -1,7 +1,7 @@
 from __future__ import print_function, division
 import os
 import glob
-from collections impot Counter
+from collections import Counter
 
 root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
 annotation = list(sorted(glob.glob(root+"*.txt")))
