@@ -6,7 +6,7 @@ import glob
 import os
 from PIL import Image
 
-images = list(sorted(glob.glob("/home/jakaria/Super_Resolution/Datasets/xView/train_images/"+"*.tif")))
+images = list(sorted(glob.glob("/home/jakaria/Super_Resolution/Datasets/xView/train_images/*.tif")))
 
 labels = {}
 labels_one_sixty = {}
