@@ -36,6 +36,7 @@ def print_labels():
     print(low_freq_labels)
     print(low_freq)
     #delete low freqency labels
+    '''
     for i in range(len(annotation)):
         annotation_path = os.path.join(root, annotation[i])
         if i%1000 == 0:
@@ -52,7 +53,7 @@ def print_labels():
                     os.remove(annotation_path)
                     os.remove(file_path)
                     break
-
+    '''
 def train_test_split():
     shuffle(annotation)
     for i in range(len(annotation)*0.2):
