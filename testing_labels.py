@@ -30,6 +30,7 @@ def print_labels():
 
 def train_test_split():
     shuffle(annotation)
-    for in range(len(annotation)*0.2)
+    for in range(len(annotation)*0.2):
+        pass
 
 print_labels()
