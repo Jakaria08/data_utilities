@@ -35,19 +35,19 @@ def print_labels():
     print(low_freq_labels)
     print(low_freq)
         #delete low freqency labels
-        '''
-        for i in range(len(annotation)):
-            annotation_path = os.path.join(root, annotation[i])
-            if i%1000 == 0:
-                print(i)
-            with open(annotation_path) as f:
-                for line in f:
-                    values = (line.split())
-                    if "\ufeff" in values[0]:
-                        values[0] = values[0][-1]
-                    obj_class = int(values[0])
-                    labels.append(obj_class)
-        '''
+    '''
+    for i in range(len(annotation)):
+        annotation_path = os.path.join(root, annotation[i])
+        if i%1000 == 0:
+            print(i)
+        with open(annotation_path) as f:
+            for line in f:
+                values = (line.split())
+                if "\ufeff" in values[0]:
+                    values[0] = values[0][-1]
+                obj_class = int(values[0])
+                labels.append(obj_class)
+    '''
 def train_test_split():
     shuffle(annotation)
     for i in range(len(annotation)*0.2):
