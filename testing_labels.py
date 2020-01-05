@@ -10,6 +10,7 @@ annotation = list(sorted(glob.glob(root+"*.txt")))
 
 print(len(annotation))
 labels = list()
+labels_new = list()
 
 def print_labels():
     for i in range(len(annotation)):
@@ -35,7 +36,6 @@ def print_labels():
     print(low_freq_labels)
     print(low_freq)
     #delete low freqency labels
-    '''
     for i in range(len(annotation)):
         annotation_path = os.path.join(root, annotation[i])
         if i%1000 == 0:
@@ -46,8 +46,13 @@ def print_labels():
                 if "\ufeff" in values[0]:
                     values[0] = values[0][-1]
                 obj_class = int(values[0])
-                labels.append(obj_class)
-    '''
+                if any(j==obj_class for j in low_freq_labels):
+                    file_path = os.path.splitext(annotation_path)[0]+".png"
+                    f.close()
+                    os.remove(annotation_path)
+                    os.remove(file_path)
+                    break
+
 def train_test_split():
     shuffle(annotation)
     for i in range(len(annotation)*0.2):
