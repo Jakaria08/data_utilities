@@ -27,6 +27,8 @@ def print_labels():
     print(list(Counter(labels).keys()))
     print(list(Counter(labels).values()))
     print(len(Counter(labels).values()))
+    print(Counter(labels).keys())
+    print(Counter(labels).values())
 
 def train_test_split():
     shuffle(annotation)
