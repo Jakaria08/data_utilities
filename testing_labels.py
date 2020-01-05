@@ -34,7 +34,7 @@ def print_labels():
     low_freq = [values[i] for i in range(len(values)) if values[i]<100]
     print(low_freq_labels)
     print(low_freq)
-        #delete low freqency labels
+    #delete low freqency labels
     '''
     for i in range(len(annotation)):
         annotation_path = os.path.join(root, annotation[i])
