@@ -46,6 +46,7 @@ def print_labels():
         if j == 0:
             os.remove(annotation_source_path)
             os.remove(image_source_path)
+            print("files removed..")
 
 
     for i in range(len(annotation)):
