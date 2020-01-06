@@ -9,8 +9,8 @@ root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
 annotation = list(sorted(glob.glob(root+"*.txt")))
 
-print(len(annotation))
-print(annotation[0])
+#print(len(annotation))
+#print(annotation[0])
 labels = list()
 labels_new = list()
 
@@ -70,4 +70,5 @@ def train_test_split():
         os.remove(annotation_source_path)
         os.remove(image_source_path)
 
-train_test_split()
+#train_test_split()
+print_labels()
