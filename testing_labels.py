@@ -10,6 +10,7 @@ test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
 annotation = list(sorted(glob.glob(root+"*.txt")))
 
 print(len(annotation))
+print(annotation[0])
 labels = list()
 labels_new = list()
 
@@ -58,8 +59,9 @@ def print_labels():
     '''
 def train_test_split():
     annotation_shuffled = shuffle(annotation)
-    print(int(len(annotation)*0.8))
-    for i in range(int(len(annotation_shuffled)*0.8)):
+    print(int(len(annotation)*0.65))
+    print(annotation[0])
+    for i in range(int(len(annotation_shuffled)*0.6)):
         if i%1000 == 0:
             print(i)
         annotation_source_path = os.path.join(root, annotation_shuffled[i])
