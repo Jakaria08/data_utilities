@@ -16,7 +16,7 @@ labels_new = list()
 
 def print_labels():
     for i in range(len(annotation)):
-        annotation_path = os.path.join(root, annotation[i])
+        annotation_path = os.path.join(test_path, annotation[i])
         if i%1000 == 0:
             print(i)
         with open(annotation_path) as f:
