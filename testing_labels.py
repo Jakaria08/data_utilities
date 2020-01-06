@@ -5,7 +5,7 @@ from collections import Counter
 from shutil import move
 from random import shuffle
 
-root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
+root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
 annotation = list(sorted(glob.glob(root+"*.txt")))
 
