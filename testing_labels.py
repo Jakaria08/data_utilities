@@ -20,7 +20,7 @@ def print_labels():
         annotation_source_path = os.path.join(root, annotation[i])
         image_source_path = os.path.splitext(annotation_source_path)[0]+".png"
         j = 0
-        with open(annotation_path) as f:
+        with open(annotation_source_path) as f:
             for line in f:
                 values = (line.split())
                 if "\ufeff" in values[0]:
