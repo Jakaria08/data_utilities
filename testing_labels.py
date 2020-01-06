@@ -66,8 +66,8 @@ def train_test_split():
         annotation_destination_path = os.path.join(test_path, annotation[i])
         image_source_path = os.path.splitext(annotation_source_path)[0]+".png"
         image_destination_path = os.path.splitext(annotation_destination_path)[0]+".png"
-        os.move(annotation_source_path, annotation_destination_path)
-        os.move(image_source_path, image_destination_path)
+        move(annotation_source_path, annotation_destination_path)
+        move(image_source_path, image_destination_path)
 
 train_test_split()
 #print_labels()
