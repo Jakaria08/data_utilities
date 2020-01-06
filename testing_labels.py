@@ -61,16 +61,16 @@ def train_test_split():
     shuffle(annotation)
     print(int(len(annotation)*0.2))
     for i in range(int(len(annotation)*0.2)):
-        if i%100 == 0:
-            print(i)
-            print(image_source_path)
-            print(image_destination_path)
         annotation_source_path = os.path.join(root, annotation[i])
         annotation_destination_path = os.path.join(test_path, annotation[i])
         image_source_path = os.path.splitext(annotation_source_path)[0]+".png"
         image_destination_path = os.path.splitext(annotation_destination_path)[0]+".png"
         move(annotation_source_path, annotation_destination_path)
         move(image_source_path, image_destination_path)
+        if i%100 == 0:
+            print(i)
+            print(image_source_path)
+            print(image_destination_path)
 
 train_test_split()
 #print_labels()
