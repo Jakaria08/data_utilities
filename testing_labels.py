@@ -15,6 +15,39 @@ labels = list()
 labels_new = list()
 
 def print_labels():
+    # delete files with small annotation
+    for i in range(int(len(annotation))):
+        annotation_source_path = os.path.join(root, annotation[i])
+        image_source_path = os.path.splitext(annotation_source_path)[0]+".png"
+        j = 0
+        with open(annotation_path) as f:
+            for line in f:
+                values = (line.split())
+                if "\ufeff" in values[0]:
+                  values[0] = values[0][-1]
+                #get coordinates withing height width range
+                '''
+                x = float(values[1])*self.image_width
+                y = float(values[2])*self.image_height
+                width = float(values[3])*self.image_width
+                height = float(values[4])*self.image_height
+                '''
+                #creating bounding boxes that would not touch the image edges
+                x_min = 1 if int(values[1]) <= 0 else int(values[1])
+                y_min = 1 if int(values[2]) <= 0 else int(values[2])
+                x_max = 255 if int(values[3]) >= 256 else int(values[3])
+                y_max = 255 if int(values[4]) >= 256 else int(values[4])
+
+                if x_max - x_min < 3 or y_max - y_min < 3:
+                    continue
+                else:
+                    j = j+1
+
+        if j == 0:
+            os.remove(annotation_source_path)
+            os.remove(image_source_path)
+
+
     for i in range(len(annotation)):
         annotation_path = os.path.join(root, annotation[i])
         if i%1000 == 0:
