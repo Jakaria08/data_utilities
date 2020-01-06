@@ -32,7 +32,7 @@ def print_labels():
     print(keys)
     print(values)
     print(len(values))
-    '''
+
     low_freq_labels = [keys[i] for i in range(len(values)) if values[i]<100]
     low_freq = [values[i] for i in range(len(values)) if values[i]<100]
     print(low_freq_labels)
@@ -56,7 +56,7 @@ def print_labels():
                     os.remove(annotation_path)
                     os.remove(file_path)
                     break
-    '''
+
 def train_test_split():
     shuffle(annotation)
     print(annotation[0])
