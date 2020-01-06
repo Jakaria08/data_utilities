@@ -7,7 +7,7 @@ from random import shuffle
 
 root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
-annotation = list(sorted(glob.glob(test_path+"*.txt")))
+annotation = list(sorted(glob.glob(root+"*.txt")))
 
 #print(len(annotation))
 #print(annotation[0])
@@ -16,7 +16,7 @@ labels_new = list()
 
 def print_labels():
     for i in range(len(annotation)):
-        annotation_path = os.path.join(test_path, annotation[i])
+        annotation_path = os.path.join(root, annotation[i])
         if i%1000 == 0:
             print(i)
         with open(annotation_path) as f:
