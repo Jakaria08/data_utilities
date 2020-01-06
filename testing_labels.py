@@ -7,7 +7,7 @@ from random import shuffle
 
 root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
-annotation = list(sorted(glob.glob(root+"*.txt")))
+annotation = list(sorted(glob.glob(test_path+"*.txt")))
 
 #print(len(annotation))
 #print(annotation[0])
