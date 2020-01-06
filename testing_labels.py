@@ -77,5 +77,5 @@ def train_test_split():
             print(image_source_path)
             print(image_destination_path)
 
-train_test_split()
-#print_labels()
+#train_test_split()
+print_labels()
