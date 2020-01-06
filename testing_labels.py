@@ -58,14 +58,13 @@ def print_labels():
                     break
     '''
 def train_test_split():
-    annotation_shuffled = shuffle(annotation)
-    print(int(len(annotation)*0.65))
+    shuffle(annotation)
     print(annotation[0])
-    for i in range(int(len(annotation_shuffled)*0.6)):
+    for i in range(int(len(annotation)*0.6)):
         if i%1000 == 0:
             print(i)
-        annotation_source_path = os.path.join(root, annotation_shuffled[i])
-        annotation_destination_path = os.path.join(test_path, annotation_shuffled[i])
+        annotation_source_path = os.path.join(root, annotation[i])
+        annotation_destination_path = os.path.join(test_path, annotation[i])
         image_source_path = os.path.splitext(annotation_source_path)[0]+".png"
         image_destination_path = os.path.splitext(annotation_destination_path)[0]+".png"
         os.remove(annotation_source_path)
