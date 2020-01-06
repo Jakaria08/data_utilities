@@ -69,8 +69,8 @@ def train_test_split():
         move(image_source_path, image_destination_path)
         if i%100 == 0:
             print(i)
-            print(image_source_path)
-            print(image_destination_path)
+            print(annotation_source_path)
+            print(annotation_destination_path)
 
 train_test_split()
 #print_labels()
