@@ -58,7 +58,7 @@ def print_labels():
     '''
 def train_test_split():
     annotation_shuffled = shuffle(annotation)
-    print(int(len(annotation_shuffled)*0.8))
+    print(int(len(annotation)*0.8))
     for i in range(int(len(annotation_shuffled)*0.8)):
         if i%1000 == 0:
             print(i)
