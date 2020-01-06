@@ -6,6 +6,7 @@ from shutil import move
 from random import shuffle
 
 root = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
+test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
 annotation = list(sorted(glob.glob(root+"*.txt")))
 
 print(len(annotation))
@@ -35,7 +36,7 @@ def print_labels():
     low_freq = [values[i] for i in range(len(values)) if values[i]<100]
     print(low_freq_labels)
     print(low_freq)
-    
+
     #delete low freqency labels
 
     for i in range(len(annotation)):
@@ -56,8 +57,13 @@ def print_labels():
                     break
     '''
 def train_test_split():
-    shuffle(annotation)
-    for i in range(len(annotation)*0.2):
-        pass
+    annotation = shuffle(annotation)
+    for i in range(len(annotation)*0.8):
+        annotation_source_path = os.path.join(root, annotation[i])
+        annotation_destination_path = os.path.join(test_path, annotation[i])
+        image_source_path = os.path.splitext(annotation_source_path)[0]+".png"
+        image_destination_path = os.path.splitext(annotation_destination_path)[0]+".png"
+        os.remove(annotation_source_path)
+        os.remove(image_source_path)
 
-print_labels()
+train_test_split()
