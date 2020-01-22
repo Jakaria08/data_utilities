@@ -133,8 +133,8 @@ def change_labels():
     print(len(values))
 
     with open('labels_from_one_to_sixty.txt', 'w') as f:
-    for item in values:
-        f.write("%s\n" % item)
+        for item in values:
+            f.write("%s\n" % item)
 
 #train_test_split()
 #print_labels()
