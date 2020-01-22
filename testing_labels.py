@@ -144,10 +144,10 @@ def change_labels():
 
                 #print(obj_class, new_class)
 
-                x_min = int(values[1])
-                y_min = int(values[2])
-                x_max = int(values[3])
-                y_max = int(values[4])
+                x_min = 1 if int(values[1]) <= 0 else int(values[1])
+                y_min = 1 if int(values[2]) <= 0 else int(values[2])
+                x_max = 255 if int(values[3]) >= 256 else int(values[3])
+                y_max = 255 if int(values[4]) >= 256 else int(values[4])
 
                 new_class_box.append([new_class, x_min, y_min, x_max, y_max])
 
