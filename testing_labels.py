@@ -128,8 +128,9 @@ def change_labels():
                 labels.append(obj_class)
 
     keys = sorted(list(Counter(labels).keys()))
-    new_class_box = list()
+
     for i in range(len(annotation)):
+        new_class_box = list()
         annotation_path = os.path.join(train_path, annotation[i])
         if i%1000 == 0:
             print(i)
