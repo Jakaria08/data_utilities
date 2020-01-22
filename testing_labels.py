@@ -152,9 +152,11 @@ def change_labels():
                 new_class_box.append([new_class, x_min, y_min, x_max, y_max])
 
         new_cls_box = np.matrix(new_class_box)
+        '''
         if i%100 == 0:
             print(annotation_path)
             print(new_cls_box)
+        '''
         np.savetxt(annotation_path, new_cls_box, fmt='%i')
 
     #values = list(Counter(labels).values())
