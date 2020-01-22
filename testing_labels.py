@@ -127,15 +127,43 @@ def change_labels():
                 labels.append(obj_class)
 
     keys = sorted(list(Counter(labels).keys()))
-    #values = list(Counter(labels).values())
-    print(keys)
-    #print(values)
-    print(len(keys))
+    new_class_box = list()
+    for i in range(len(annotation)):
+        annotation_path = os.path.join(train_path, annotation[i])
+        if i%1000 == 0:
+            print(i)
+        with open(annotation_path) as f:
+            for line in f:
+                values = (line.split())
+                if "\ufeff" in values[0]:
+                    values[0] = values[0][-1]
+                obj_class = int(values[0])
+                new_class = keys.index(obj_class)
 
+                #print(obj_class, new_class)
+
+                x_min = int(values[1])
+                y_min = int(values[2])
+                x_max = int(values[3])
+                y_max = int(values[4])
+
+                new_class_box.append([new_class, x_min, y_min, x_max, y_max])
+
+        new_cls_box = np.matrix(new_class_box)
+        if i%100 == 0:
+            print(annotation_path)
+            print(new_cls_box)
+        #np.savetxt(annotation_path, new_cls_box, fmt='%i')
+
+    #values = list(Counter(labels).values())
+    #print(keys)
+    #print(values)
+    #print(len(keys))
+    '''
     with open('labels_from_one_to_sixty.txt', 'w') as f:
         for item in keys:
             f.write("%s\n" % item)
-
+    '''
 #train_test_split()
 #print_labels()
 change_labels()
