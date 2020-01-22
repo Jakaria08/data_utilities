@@ -140,7 +140,7 @@ def change_labels():
                 if "\ufeff" in values[0]:
                     values[0] = values[0][-1]
                 obj_class = int(values[0])
-                new_class = keys.index(obj_class)
+                new_class = keys.index(obj_class) + 1
 
                 #print(obj_class, new_class)
 
@@ -155,7 +155,7 @@ def change_labels():
         if i%100 == 0:
             print(annotation_path)
             print(new_cls_box)
-        #np.savetxt(annotation_path, new_cls_box, fmt='%i')
+        np.savetxt(annotation_path, new_cls_box, fmt='%i')
 
     #values = list(Counter(labels).values())
     #print(keys)
