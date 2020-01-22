@@ -115,7 +115,7 @@ def train_test_split():
 def change_labels():
     # change labels 0 to n-1;
     for i in range(len(annotation)):
-        annotation_path = os.path.join(root, annotation[i])
+        annotation_path = os.path.join(train_path, annotation[i])
         if i%1000 == 0:
             print(i)
         with open(annotation_path) as f:
