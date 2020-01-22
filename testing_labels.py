@@ -8,7 +8,7 @@ import numpy as np
 
 train_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
-annotation = list(sorted(glob.glob(train_path+"*.txt")))
+annotation = list(sorted(glob.glob(test_path+"*.txt")))
 
 #print(len(annotation))
 #print(annotation[0])
@@ -116,7 +116,7 @@ def train_test_split():
 def change_labels():
     # change labels 0 to n-1;
     for i in range(len(annotation)):
-        annotation_path = os.path.join(train_path, annotation[i])
+        annotation_path = os.path.join(test_path, annotation[i])
         if i%1000 == 0:
             print(i)
         with open(annotation_path) as f:
@@ -131,7 +131,7 @@ def change_labels():
 
     for i in range(len(annotation)):
         new_class_box = list()
-        annotation_path = os.path.join(train_path, annotation[i])
+        annotation_path = os.path.join(test_path, annotation[i])
         if i%1000 == 0:
             print(i)
         with open(annotation_path) as f:
