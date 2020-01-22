@@ -126,14 +126,14 @@ def change_labels():
                 obj_class = int(values[0])
                 labels.append(obj_class)
 
-    keys = list(Counter(labels).keys())
-    values = list(Counter(labels).values())
+    keys = sorted(list(Counter(labels).keys()))
+    #values = list(Counter(labels).values())
     print(keys)
-    print(values)
-    print(len(values))
+    #print(values)
+    print(len(keys))
 
     with open('labels_from_one_to_sixty.txt', 'w') as f:
-        for item in values:
+        for item in keys:
             f.write("%s\n" % item)
 
 #train_test_split()
