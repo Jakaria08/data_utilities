@@ -6,7 +6,7 @@ from shutil import move
 from random import shuffle
 import numpy as np
 
-train_path = "/home/jakaria/Super_Resolution/Datasets/COWC/DetectionPatches_256x256/Potsdam_ISPRS/"
+train_path = "/home/jakaria/Super_Resolution/Datasets/TankData/cold-lake_1-2/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
 annotation = list(sorted(glob.glob(train_path+"*.txt")))
 
