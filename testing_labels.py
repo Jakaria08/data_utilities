@@ -173,7 +173,7 @@ def print_number_of_objects():
     print("annotation"+str(len(annotation)))
     j = 0
     for i in range(int(len(annotation))):
-        annotation_source_path = os.path.join(root, annotation[i])
+        annotation_source_path = os.path.join(train_path, annotation[i])
         with open(annotation_source_path) as f:
             for line in f:
                 j = j+1
