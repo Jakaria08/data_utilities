@@ -6,9 +6,9 @@ from shutil import move
 from random import shuffle
 import numpy as np
 
-train_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_train_images/"
+train_path = "/home/jakaria/Super_Resolution/Datasets/COWC/DetectionPatches_256x256/Potsdam_ISPRS/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
-annotation = list(sorted(glob.glob(test_path+"*.txt")))
+annotation = list(sorted(glob.glob(train_path+"*.txt")))
 
 #print(len(annotation))
 #print(annotation[0])
@@ -168,6 +168,18 @@ def change_labels():
         for item in keys:
             f.write("%s\n" % item)
     '''
+def print_number_of_objects():
+    # delete files with small annotation
+    print("annotation"+str(len(annotation)))
+    j = 0
+    for i in range(int(len(annotation))):
+        annotation_source_path = os.path.join(root, annotation[i])
+        with open(annotation_source_path) as f:
+            for line in f:
+                j = j+1
+    print(j)
+#get coordinates withing height width range
 #train_test_split()
 #print_labels()
-change_labels()
+#change_labels()
+print_number_of_objects():
