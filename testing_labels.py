@@ -8,7 +8,11 @@ import numpy as np
 
 train_path = "/home/jakaria/Super_Resolution/Datasets/TankData/cold-lake_1-2/"
 test_path = "/home/jakaria/Super_Resolution/Datasets/xView/chip_test_images/"
+src_path = '/home/jakaria/Super_Resolution/Datasets/COWC/DetectionPatches_256x256/Potsdam_ISPRS/HR/x4/valid_img/'
+dest_path = '/home/jakaria/Super_Resolution/Object-Detection-Metrics/groundtruths/'
 annotation = list(sorted(glob.glob(train_path+"*.txt")))
+annotation_src = list(sorted(glob.glob(src_path+"*.txt")))
+annotation_dest = list(sorted(glob.glob(dest_path+"*.txt")))
 
 #print(len(annotation))
 #print(annotation[0])
@@ -178,8 +182,43 @@ def print_number_of_objects():
             for line in f:
                 j = j+1
     print(j)
+
+def change_annotations_car():
+    print("annotation_src"+str(len(annotation_src)))
+    print("annotation_dest"+str(len(annotation_dest)))
+
+    for i in range(int(len(annotation_src))):
+        annotation_source_path = os.path.join(src_path, annotation_src[i])
+        annotation_destination_path = os.path.join(dest_path, annotation_dest[i])
+        with open(annotation_source_path) as f:
+            for line in f:
+                values = (line.split())
+                if "\ufeff" in values[0]:
+                  values[0] = values[0][-1]
+                #get coordinates withing height width range
+                x = float(values[1])*self.image_width
+                y = float(values[2])*self.image_height
+                width = float(values[3])*self.image_width
+                height = float(values[4])*self.image_height
+                #creating bounding boxes that would not touch the image edges
+                x_min = 1 if x - width/2 <= 0 else int(x - width/2)
+                x_max = 255 if x + width/2 >= 256 else int(x + width/2)
+                y_min = 1 if y - height/2 <= 0 else int(y - height/2)
+                y_max = 255 if y + height/2 >= 256 else int(y + height/2)
+
+                new_class_box.append([new_class, x_min, y_min, x_max, y_max])
+
+        new_cls_box = np.matrix(new_class_box)
+
+        if i%100 == 0:
+            print(annotation_source_path)
+            print(new_cls_box)
+
+        np.savetxt(annotation_destination_path, new_cls_box, fmt='%i')
+
 #get coordinates withing height width range
 #train_test_split()
 #print_labels()
 #change_labels()
-print_number_of_objects()
+#print_number_of_objects()
+change_annotations_car()
