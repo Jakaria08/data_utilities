@@ -213,7 +213,7 @@ def change_annotations_car():
             print(annotation_source_path)
             print(new_class_box)
 
-        np.savetxt(annotation_destination_path, new_class_box, fmt='%i')
+        np.savetxt(annotation_destination_path, new_class_box, fmt='%i %i %i %i %i')
 
 #get coordinates withing height width range
 #train_test_split()
