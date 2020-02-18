@@ -188,7 +188,7 @@ def change_annotations_car():
     for i in range(int(len(annotation_src))):
         new_class_box = list()
         annotation_source_path = os.path.join(src_path, annotation_src[i])
-        annotation_destination_path = os.path.join(dest_path, annotation_src[i])
+        annotation_destination_path = os.path.join(dest_path, os.path.basename(annotation_src[i]))
         with open(annotation_source_path) as f:
             for line in f:
                 values = (line.split())
