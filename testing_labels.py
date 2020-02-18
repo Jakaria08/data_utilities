@@ -205,7 +205,7 @@ def change_annotations_car():
                 y_min = 1 if y - height/2 <= 0 else int(y - height/2)
                 y_max = 255 if y + height/2 >= 256 else int(y + height/2)
 
-                new_class_box.append([values[0], x_min, y_min, x_max, y_max])
+                new_class_box.append([int(values[0]), x_min, y_min, x_max, y_max])
 
         new_class_box = np.matrix(new_class_box)
 
@@ -213,7 +213,7 @@ def change_annotations_car():
             print(annotation_source_path)
             print(new_class_box)
 
-        np.savetxt(annotation_destination_path, new_class_box, fmt='%i %i %i %i %i')
+        np.savetxt(annotation_destination_path, new_class_box, fmt='%i')
 
 #get coordinates withing height width range
 #train_test_split()
