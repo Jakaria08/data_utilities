@@ -12,7 +12,6 @@ src_path = '/home/jakaria/Super_Resolution/Datasets/COWC/DetectionPatches_256x25
 dest_path = '/home/jakaria/Super_Resolution/Object-Detection-Metrics/groundtruths/'
 annotation = list(sorted(glob.glob(train_path+"*.txt")))
 annotation_src = list(sorted(glob.glob(src_path+"*.txt")))
-annotation_dest = list(sorted(glob.glob(dest_path+"*.txt")))
 
 #print(len(annotation))
 #print(annotation[0])
@@ -189,7 +188,7 @@ def change_annotations_car():
 
     for i in range(int(len(annotation_src))):
         annotation_source_path = os.path.join(src_path, annotation_src[i])
-        annotation_destination_path = os.path.join(dest_path, annotation_dest[i])
+        annotation_destination_path = os.path.join(dest_path, annotation_src[i])
         with open(annotation_source_path) as f:
             for line in f:
                 values = (line.split())
