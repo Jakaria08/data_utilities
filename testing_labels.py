@@ -209,12 +209,12 @@ def change_annotations_car():
 
         new_class_box = np.matrix(new_class_box)
 
-        if i%100 == 0:
-            print(annotation_source_path)
-            print(new_class_box)
-            print(annotation_destination_path)
+        #if i%100 == 0:
+        print(annotation_source_path)
+        print(new_class_box)
+        print(annotation_destination_path)
 
-        np.savetxt(annotation_destination_path, new_class_box, fmt='%i')
+        #np.savetxt(annotation_destination_path, new_class_box, fmt='%i')
 
 #get coordinates withing height width range
 #train_test_split()
