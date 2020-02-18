@@ -184,7 +184,6 @@ def print_number_of_objects():
 
 def change_annotations_car():
     print("annotation_src"+str(len(annotation_src)))
-    print("annotation_dest"+str(len(annotation_dest)))
 
     for i in range(int(len(annotation_src))):
         annotation_source_path = os.path.join(src_path, annotation_src[i])
