@@ -186,6 +186,7 @@ def change_annotations_car():
     print("annotation_src"+str(len(annotation_src)))
 
     for i in range(int(len(annotation_src))):
+        new_class_box = list()
         annotation_source_path = os.path.join(src_path, annotation_src[i])
         annotation_destination_path = os.path.join(dest_path, annotation_src[i])
         with open(annotation_source_path) as f:
@@ -206,13 +207,13 @@ def change_annotations_car():
 
                 new_class_box.append([new_class, x_min, y_min, x_max, y_max])
 
-        new_cls_box = np.matrix(new_class_box)
+        new_class_box = np.matrix(new_class_box)
 
         if i%100 == 0:
             print(annotation_source_path)
-            print(new_cls_box)
+            print(new_class_box)
 
-        np.savetxt(annotation_destination_path, new_cls_box, fmt='%i')
+        np.savetxt(annotation_destination_path, new_class_box, fmt='%i')
 
 #get coordinates withing height width range
 #train_test_split()
