@@ -194,10 +194,10 @@ def change_annotations_car():
                 if "\ufeff" in values[0]:
                   values[0] = values[0][-1]
                 #get coordinates withing height width range
-                x = float(values[1])*self.image_width
-                y = float(values[2])*self.image_height
-                width = float(values[3])*self.image_width
-                height = float(values[4])*self.image_height
+                x = float(values[1])*256
+                y = float(values[2])*256
+                width = float(values[3])*256
+                height = float(values[4])*256
                 #creating bounding boxes that would not touch the image edges
                 x_min = 1 if x - width/2 <= 0 else int(x - width/2)
                 x_max = 255 if x + width/2 >= 256 else int(x + width/2)
