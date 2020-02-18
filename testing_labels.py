@@ -212,6 +212,7 @@ def change_annotations_car():
         if i%100 == 0:
             print(annotation_source_path)
             print(new_class_box)
+            print(annotation_destination_path)
 
         np.savetxt(annotation_destination_path, new_class_box, fmt='%i')
 
